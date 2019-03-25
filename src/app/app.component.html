@@ -1,26 +1,19 @@
-<h1>
-  Welcome to {{ title }}!
-</h1>
-<h2> {{ pizza.name }}</h2>
-<div>
-  <label>Nom:</label>
-  <input [(ngModel)]="pizza.name">
-  <label> Prix :</label> {{pizza.price}} 
+<app-menu [logo]="title"></app-menu>
+<div class="container">
+  <h1 class="mt-4">
+  {{ title }} : {{ name }}!
+  </h1>
+  <app-pizza [pizza]="SelectedPizza"></app-pizza>
 </div>
-<ul>
-  <li *ngFor = "let pizza of PizzaList">
-    {{ pizza.name }}
-  </li>
-</ul>
 <div class="container">
   <div class="row">
-    <div class="card col-md-6" style="width: 18rem;" *ngFor = "let pizza of PizzaList">
-      <img src="../assets/images/{{ pizza.photo }}" class="card-img-top" alt="pizza" style="height: 200px;">
+    <div [class.selected]= "pizza === SelectedPizza"  class="card col-md-6" style="width: 8rem;" *ngFor = "let pizza of PizzaList" (click)='onSelect(pizza)'>
+      <img  [src]="'../assets/images/'+pizza.photo" class="card-img-top" alt="pizza" style="height: 200px;">
       <div class="card-body">
         <h5 class="card-title">{{ pizza.name }}</h5>
         <p class="card-text">{{ pizza.price }}</p>
-        <a href="#" class="btn btn-primary">Buy it</a>
       </div>
     </div>
   </div>
 </div>
+<app-footer [title]="title"></app-footer>

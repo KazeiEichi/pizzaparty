@@ -1,0 +1,10 @@
+
+<div *ngIf="pizza" class="row justify-content-center my-5">
+  <div>
+      <img [src]="'../assets/images/'+pizza.photo" class="card-img-top" alt="pizza" style="height: 200px;">
+      <h2> {{ pizza.name }}</h2>
+      <label>Nom: </label> 
+      <input [(ngModel)]="pizza.name"><br>
+      <label> Prix :</label> {{pizza.price}} 
+  </div>
+</div>
