@@ -1,0 +1,16 @@
+
+<div class="container">
+  <app-pizza [pizza]="SelectedPizza"></app-pizza>
+</div>
+<div class="container">
+    <div class="row">
+      <div [class.selected]= "pizza === SelectedPizza"  class="card col-md-6" style="width: 8rem;" *ngFor = "let pizza of PizzaList" (click)='onSelect(pizza)'>
+        <img  [src]="'../assets/images/'+pizza.photo" class="card-img-top" alt="pizza" style="height: 200px;">
+        <div class="card-body">
+          <h5 class="card-title">{{ pizza.name }}</h5>
+          <p class="card-text">{{ pizza.price }}</p>
+          <a class="btn btn-primary" [routerLink]="['/pizza',  pizza.id]"> Voir la pizza</a>
+        </div>
+      </div>
+    </div>
+  </div>

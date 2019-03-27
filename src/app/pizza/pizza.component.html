@@ -5,6 +5,12 @@
       <h2> {{ pizza.name }}</h2>
       <label>Nom: </label> 
       <input [(ngModel)]="pizza.name"><br>
-      <label> Prix :</label> {{pizza.price}} 
+      <label>Prix:</label>
+      <input class="form-control" [(ngModel)]="pizza.price">
+      <label> Prix Total :</label> 
+      <h3>{{pizza.price * quantity}} &euro;</h3>
+      <button class="btn btn-primary" (click)="edit()">Modifier</button>
+      <button class="btn btn-primary" (click)="delete()">Supprimer</button>
+      <app-counter [value]="quantity" (increase)="increasePrice($event)" (decrease)="decreasePrice($event)"></app-counter>
   </div>
 </div>

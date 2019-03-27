@@ -1,3 +1,22 @@
-<nav>
-  {{logo}}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+      <a class="navbar-brand" routerLink="/">{{ logo }}</a>
+      <button (click)='toggleCollapseNavbar()' class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div [class.show]="isCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pizzas" routerLinkActive='active'>pizzas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pizza/add" routerLinkActive='active'>ajout</a>
+          </li>
+        </ul>
+      </div>
+  </div>
 </nav>

@@ -7,4 +7,8 @@ import { Component, Input} from '@angular/core';
 })
 export class MenuComponent  {
   @Input() logo:string;
+  isCollapsed = false;
+  toggleCollapseNavbar():void{
+    this.isCollapsed = !this.isCollapsed;
+  }
 }

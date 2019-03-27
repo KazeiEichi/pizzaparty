@@ -1,0 +1,23 @@
+<div *ngIf="pizza">
+  <div class="container mt-5">
+    <div class="mt-5">
+      <button class="btn btn-primary" (click)="prev()">Précédente</button>
+      <button class="btn btn-primary" (click)="next()">Suivante</button>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]="'assets/images/' +pizza.photo" [alt]="pizza.name" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h1>{{ pizza.name }}</h1>
+        <h2>{{ pizza.price }} &euro;</h2>
+
+        <button (click)="goBack()" class="btn btn-primary">Retour</button>
+      </div>
+    </div>
+    <div class="mt-5">
+      <button class="btn btn-primary" (click)="prev()">Précédente</button>
+      <button class="btn btn-primary" (click)="next()">Suivante</button>
+    </div>
+  </div>
+</div>

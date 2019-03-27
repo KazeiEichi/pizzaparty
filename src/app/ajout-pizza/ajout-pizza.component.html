@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <form action="" (submit)="create()" #pizzaForm="ngForm">
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" [(ngModel)]="pizza.name" name="name" id="name" class="form-control" required
+          #name="ngModel" [class.is-invalid]="!name.valid && name.touched" [class.is-valid]="name.valid">
+        </div>
+        <div class="form-group">
+          <label for="price">Prix</label>
+          <input type="number" [(ngModel)]="pizza.price" name="price" id="price" class="form-control" required
+          #price="ngModel" [class.is-invalid]="!price.valid && price.touched" [class.is-valid]="price.valid">
+        </div>
+        <div class="form-group">
+          <label for="photo">Photo</label>
+          <select name="photo" id="photo" [(ngModel)]="pizza.photo" required>
+            <option *ngFor="let pic of photos" [value]="pic">{{ pic }}</option>
+          </select>
+        </div>
+        <button [disabled]="!pizzaForm.valid" class="btn btn-primary btn-block">Ajouter</button>
+      </form>
+    </div>
+  </div>
+</div>
